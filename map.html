@@ -24,24 +24,20 @@
             }
             
             #maparea {
-                width: 700px;
-                height: 500px;
-                position: relative;
-                float: left;
-                left: 25%;
-                border: 10px solid #000000;
+                width: 100%;
+                height: 100%;
+                position: absolute;
                 opacity: 1;
             }
             #infoPanel {
-                width: 800px;
+                width: 100%;
                 font-size: 20px;
                 float: left;
                 position: relative;
-                margin-top: 5%;
-                margin-left: 22%;
+                margin-top: 50%;
                 background: #000000;
                 color: #FFFFFF;
-                opacity: 0.8;
+                opacity: 0.6;
                 font-family: Sans-serif;
             }
             #infoPanel div {
@@ -180,23 +176,21 @@
     
     </head>
 <body>
-    <div style="position: absolute; left: 0px; top: 0px; z-index: -1;">
-            <img src="back.jpg">
-                </div>
         
-        <div id="panel" align="center"><br/>
-            <input style="font-size: 15px; " id="city_country" type="textbox" value="LNMIIT">
-            <input type="button" value="Go!" onclick="codeAddress()" id="button">
+        
+        
+        <div style="z-index:0;">
+            <div id="maparea">
+            </div>
+        </div>
+        <div id="panel" align="center" style="z-index:1;">
+            <br/>
+            <input style="font-size: 15px; " id="city_country" type="textbox" value="26.9400298,75.9253819" style="z-index:1;">
+            <input type="button" value="Go!" onclick="codeAddress()" id="button" style="z-index:1;">
             <br/>
             <br/>
         </div>
-        
-        <div id="maparea" align="center"></div>
-        
-        <div id="infoPanel" align="center">
-            <br/><b>Marker status:</b>
-            <div id="markerStatus"><br/>
-            </div>
+        <div id="infoPanel" align="center" style="z-index:1;">
             <b>Current position:</b>
             <div id="info">Click on Go!
             </div>
