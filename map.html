@@ -5,177 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-    </script>
+    <script src="./js/jquery-3.1.1.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <!address locator>
     <!importing jquery and js for google maps (can be found on ajax.google.com)>
-    <script type="text/javascript" src="jquery-1.9.1.js">
-    </script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js">
-    </script>
-    
-    <style type="text/css">
-            
-        #city_country {
-            padding: 1px 4px;
-        }
-           
-        #button {
-            font-size: 20px;
-            border: none;
-            color: #FFFFFF;
-            text-align: center;
-            display: inline-block;
-            background-color: #000000;
-            opacity: 0.8;
-        }
-    
-        #maparea {
-            height: 100%;
-        }
-        #infoPanel {
-            
-            font-size: 20px;
-            height:100%;
-            background: #000000;
-            color: #FFFFFF;
-            opacity: 0.6;
-            font-family: Sans-serif;
-        }
-    </style>
-    
-    <script type="text/javascript">
-        $(window).load(function(){
-            var geocoder;
-            var map;
-            var marker;
+    <script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js" async defer></script>
 
-            h2d = function(d)
-            {
-                return parseInt(d, 36);
-            }
-                       
-            back = function()
-            {
-                           
-                var rev1 = document.getElementById('ipcode1').value;
-                var rev2 = document.getElementById('ipcode2').value;
-                           document.getElementById('copo').innerHTML = [
-                                                                        h2d(rev1)/100,
-                                                                        h2d(rev2)/100
-                                                                        ].join(', ');
-            }
-                           
-            codeAddress = function ()
-            {
-                geocoder = new google.maps.Geocoder();
-                       
-                var address = document.getElementById('city_country').value;
-                
-                geocoder.geocode( { 'address': address}, function(results, status)
-                {
-                    if (status == google.maps.GeocoderStatus.OK)
-                    {
-                        map = new google.maps.Map(document.getElementById('maparea'),{ zoom: 16, streetViewControl: false, mapTypeControlOptions:{ style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,mapTypeIds:[google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.ROADMAP]}, center: results[0].geometry.location, mapTypeId: google.maps.MapTypeId.ROADMAP });
-                        
-                        map.setCenter(results[0].geometry.location);
-                                 
-                        marker = new google.maps.Marker({ map: map,position: results[0].geometry.location,draggable: true,title: 'drag'});
-                                 
-                        updateMarkerPosition(results[0].geometry.location);
-                                 
-                        updatetscode(results[0].geometry.location);
-                                 
-                        geocodePosition(results[0].geometry.location);
-                                            
-                        google.maps.event.addListener(marker, 'dragstart', function()
-                            {
-                                updateMarkerAddress('Finding');
-                            });
-                                            
-                        google.maps.event.addListener(marker, 'drag', function()
-                            {
-                                updateMarkerStatus('Moving');
-                                updateMarkerPosition(marker.getPosition());
-                                updatetscode(marker.getPosition());
-                            });
-                                            
-                        google.maps.event.addListener(marker, 'dragend', function()
-                            {
-                                updateMarkerStatus('Stable');
-                                geocodePosition(marker.getPosition());
-                                map.panTo(marker.getPosition());
-                            });
-                                            
-                        google.maps.event.addListener(map, 'click', function(e)
-                            {
-                                updateMarkerPosition(e.latLng);
-                                updatetscode(e.latLng);
-                                geocodePosition(marker.getPosition());
-                                marker.setPosition(e.latLng);
-                                map.panTo(marker.getPosition());
-                            });
-                                            
-                    }
-                    else
-                    {
-                        alert('Geocode was not successful for the following reason: ' +status);
-                    }
-                });
-            }
-                           
-            function geocodePosition(pos)
-            {
-                geocoder.geocode({latLng: pos}, function(responses)
-                {
-                    if (responses && responses.length > 0)
-                    {
-                        updateMarkerAddress(responses[0].formatted_address);
-                    }
-                                 
-                    else
-                    {
-                        updateMarkerAddress('Cannot determine address at this location.');
-                    }
-                });
-            }
-                           
-            function d2h(d)
-            {
-                return (+d).toString(36).toUpperCase();
-            }
-                           
-            function updateMarkerStatus(str)
-            {
-                document.getElementById('markerStatus').innerHTML = str;
-            }
-                           
-            function updateMarkerPosition(latLng)
-            {
-                document.getElementById('info').innerHTML = [latLng.lat(),latLng.lng()].join(', ');
-            }
-                           
-            function updatetscode(latLng)
-            {
-                var latitude = latLng.lat();
-                var longitude = latLng.lng();
-                var lati = Math.round(latitude*100);
-                var long = Math.round(longitude*100);
-                           
-                document.getElementById('tscode').innerHTML = [d2h(lati),d2h(long)].join('- ');
-            }
-                           
-            function updateMarkerAddress(str)
-            {
-                document.getElementById('address').innerHTML = str;
-            }
-        });
-                           
-    </script>
+    <script type="text/javascript" src="./js/main.js"></script>
     
 </head>
 <body>
@@ -226,7 +65,7 @@
     </div>
     
     <div class="col-md-10">
-        <div id="maparea">
+        <div id="maparea" style="height:100%;">
         </div>
     </div>
     
