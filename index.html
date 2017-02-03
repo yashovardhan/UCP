@@ -30,6 +30,7 @@
                 top: 0%;
                 position: absolute;
                 opacity: 1;
+                z-index: 1;
             }
             #infoPanel {
                 width: 20%;
@@ -376,7 +377,15 @@
     </head>
 <body style="background-color:#666666;">
     
-    <div id="maparea" align="center"></div>
+    <div id="maparea" align="center">
+        <div id="style-selector-control"  class="map-control" style="z-index:2;">
+            <select id="style-selector" class="selector-control">
+                <option value="default">Default</option>
+                <option value="night">Night mode</option>
+                <option value="retro" selected="selected">Retro</option>
+            </select>
+        </div>
+    </div>
     <div id="infoPanel" align="center">
         <div id="panel" align="center"><br/>
             <input style="font-size: 15px; " id="city_country" type="textbox" value="Jaipur">
