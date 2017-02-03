@@ -14,7 +14,7 @@
             }
            
            #button {
-                font-size: 20px;
+                font-size: 15px;
                 border: none;
                 color: #FFFFFF;
                 text-align: center;
@@ -24,25 +24,23 @@
             }
             
             #maparea {
-                width: 80%;
+                width: 100%;
                 height: 100%;
                 right: 0%;
                 top: 0%;
                 position: absolute;
                 opacity: 1;
-                z-index: 1;
+                z-index: 0;
             }
             #infoPanel {
-                width: 20%;
-                height: 100%;
-                left: 0%;
-                top: 0%;
-                font-size: 20px;
+                width: 15%;
+                height: 80%;
+                left: 10%;
+                top: 5%;
+                font-size: 15px;
                 float: left;
                 position: absolute;
-                background: #000000;
-                color: #FFFFFF;
-                opacity: 0.8;
+                color: #000000;
                 font-family: Sans-serif;
             }
         </style>
@@ -74,7 +72,7 @@
                            geocoder.geocode( { 'address': address}, function(results, status) {
                                             if (status == google.maps.GeocoderStatus.OK) {
                                             map = new google.maps.Map(document.getElementById('maparea'), {
-                                                                      zoom: 10,
+                                                                      zoom: 8,
                                                                       streetViewControl: false,
                                                                       mapTypeControlOptions: {
                                                                       style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
@@ -184,37 +182,37 @@
     </div>
     <div id="infoPanel" align="center">
         <div style="padding-left:5px;padding-right:5px;">
-        <div id="panel" align="center"><br/>
-            <input style="font-size: 15px; " id="city_country" type="textbox" value="Jaipur">
+            <div id="panel" align="center" style="background: #FFFFFF;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><br/>
+            <input style="font-size: 13px;width: 100px;" id="city_country" type="textbox" value="Jaipur">
             <input type="button" value="Go!" onclick="codeAddress()" id="button" >
             <br/>
             <br/>
         </div>
-        
-        <br/><b>Marker status:</b>
-        <div id="markerStatus"><br/>
-        </div>
-        <b>Current position:</b>
-        <div id="info">Click on Go!
-        </div>
-        <b>UCP Code:</b>
-        <div id="tscode">Click on Go!
-        </div>
-        <b>Closest matching address:</b>
-        <div id="address">Click on Go!
-        </div><br/>____________<br/><br/>
-        <div id="coderev" align="center">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input style="font-size: 15px; width: 50px;" id="ipcode1" type="textbox" value="FYR">
-            <input style="font-size: 15px; width: 50px;" id="ipcode2" type="textbox" value="CSJ">
-            <input type="button" value="Convert Back" onclick="back()" id="button">
             <br/>
+        <div style="background: #FFFFFF;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <br/>
+            <div><img src="img/logo.png" style="height:10%;"></img><b style="font-size: 16px;"><br/><br/>Universal Coordinate Pin</b><br/></div>
+            
+            <br/><b>UCP Code:</b>
+            <div id="tscode"></div>
+            <br/><b>Marker Status:</b>
+            <div id="markerStatus">Stable<br/></div>
+            <br/><b>Coordinate Position:</b>
+            <div id="info"></div>
+            <br/><b>Closest Matching Address:</b>
+            <div id="address"></div>
+            <br/>____________<br/><br/>
+            <div id="coderev" align="center">
+                <input style="font-size: 13px; width: 45px; align:center;" id="ipcode1" type="textbox" value="FYR">
+                <input style="font-size: 13px; width: 45px; align:center;" id="ipcode2" type="textbox" value="CSJ">
+                <br/><br/><input type="button" value="Convert Back" onclick="back()" id="button">
+                <br/>
+                <br/>
+            </div>
+            <b>Corresponding Position:</b>
+            <div id="copo">26.9124336, 75.78727090000007</div>
             <br/>
         </div>
-        <b>Corresponding Position:</b>
-        <div id="copo">26.9124336, 75.78727090000007</div>
-        <br/>
-    </div>
     </div>
 </body>
 </html>
