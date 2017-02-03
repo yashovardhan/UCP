@@ -7,10 +7,18 @@
         
         <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCEqoC5yQIIBXbNVxsuRe787A29ZC32CVA&callback=initMap"></script>
         
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        
         <style type="text/css">
+            
+            body {
+                font-family: 'Muli', sans-serif;
+            }
             
             #city_country {
                 padding: 1px 4px;
+                font-family: 'Muli', sans-serif;
+
             }
            
            #button {
@@ -21,6 +29,7 @@
                 display: inline-block;
                 background-color: #000000;
                 opacity: 0.8;
+                font-family: 'Muli', sans-serif;
             }
             
             #maparea {
@@ -31,6 +40,8 @@
                 position: absolute;
                 opacity: 1;
                 z-index: 0;
+                font-family: 'Muli', sans-serif;
+
             }
             #infoPanel {
                 width: 15%;
@@ -41,7 +52,9 @@
                 float: left;
                 position: absolute;
                 color: #000000;
-                font-family: Sans-serif;
+                font-family: 'Muli', sans-serif;
+                padding-right: 10px;
+                padding-left: 10px;
             }
         </style>
         <script type="text/javascript">
@@ -395,14 +408,14 @@
     </div>
     <div id="infoPanel" align="center">
         <div style="padding-left:5px;padding-right:5px;">
-            <div id="panel" align="center" style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;"><br/>
+            <div id="panel" align="center" style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;padding-right: 10px;padding-left: 10px;"><br/>
             <input style="font-size: 11px;width: 100px;" id="city_country" type="textbox" value="Jaipur">
             <input type="button" value="Go!" onclick="codeAddress()" id="button" >
             <br/>
             <br/>
         </div>
             <br/>
-            <div style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;">
+            <div style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;padding-right: 10px;padding-left: 10px;">
             <br/>
             <div><img src="img/logo.png" style="height:10%;"></img><b style="font-size: 14px;"><br/><br/>Universal Coordinate Pin</b><br/></div>
             
