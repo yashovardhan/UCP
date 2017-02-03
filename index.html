@@ -31,6 +31,8 @@
                 background-color: #000000;
                 opacity: 0.8;
                 font-family: 'Muli', sans-serif;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 5px;
             }
             
             #maparea {
@@ -412,31 +414,32 @@
     <div id="infoPanel" align="center">
         <div style="padding-left:5px;padding-right:5px;">
             <div id="panel" align="center" style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;padding-right: 10px;padding-left: 10px;"><br/>
-            <input style="font-size: 11px;width: 100px;" id="city_country" type="textbox" value="Jaipur">
-            <input type="button" value="Search" onclick="codeAddress()" id="button" >
+                <strong>Search by Place Name</strong><br/><br/>
+            <input style="font-size: 11px;width: 100px;height:20px;border-radius: 5px;" id="city_country" type="textbox" value="Jaipur"><br/><br/>
+            <input type="button" value="Search" onclick="codeAddress()" id="button">
             <br/>
             <br/>
             </div>
             <br/>
             <div style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;padding-right: 10px;padding-left: 10px;">
             <br/>
-            <div><img src="img/logo.png" style="height:10%;"></img><b style="font-size: 14px;"><br/><br/>Universal Coordinate Pin</b><br/></div>
+            <div><img src="img/logo.png" style="height:10%;"></img><b style="font-size: 14px;"><br/><br/>Universal Coordinate Pin</strong><br/></div>
             
-            <br/><b>UCP Code:</b>
+            <br/><strong>UCP Code:</strong>
             <div id="tscode"></div>
-            <br/><b>Marker Status:</b>
+            <br/><strong>Marker Status:</strong>
             <div id="markerStatus">Stable<br/></div>
-            <br/><b>Lat-Long Position:</b>
-            <div id="info"></div>
-            <br/><b>Closest Matching Address:</b>
+            <br/><strong>Closest Matching Address:</strong>
             <div id="address"></div>
+            <br/><strong>Lat-Long Position:</strong>
+            <div id="info"></div>
             <br/>
             </div><br/>
             <div id="panel" align="center" style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;padding-right: 10px;padding-left: 10px;"><br/>
-                <b>Search using UCP Code</b><br/><br/>
-                <input style="font-size: 11px; width: 45px; align:center;" id="ipcode1" type="textbox" value="FYR">
-                <input style="font-size: 11px; width: 45px; align:center;" id="ipcode2" type="textbox" value="CSJ">
-                <br/><br/><input type="button" value="Search" onclick="back()" id="button">
+                <strong>Search by UCP Code</strong><br/><br/>
+                <input style="font-size: 11px; width: 45px;height:20px; text-align:center;border-radius: 5px;" id="ipcode1" type="textbox" value="FYR">
+                    <input style="font-size: 11px; width: 45px;height:20px; text-align:center;border-radius: 5px;" id="ipcode2" type="textbox" value="CSJ">
+                    <br/><br/><input type="button" value="Search" onclick="back()" id="button">
                 <br/>
                 <br/>
             </div>
