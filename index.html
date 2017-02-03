@@ -69,16 +69,6 @@
                            return parseInt(d, 36);
                            }
                            
-                           back = function() {
-                           
-                           var rev1 = document.getElementById('ipcode1').value;
-                           var rev2 = document.getElementById('ipcode2').value;
-                           document.getElementById('copo').innerHTML = [
-                                                                        (h2d(rev1)/100)-180,
-                                                                        (h2d(rev2)/100)-90
-                                                                        ].join(', ');
-                           }
-                           
                            codeAddress = function () {
                            geocoder = new google.maps.Geocoder();
                            
@@ -399,7 +389,19 @@
                            function updateMarkerAddress(str) {
                            document.getElementById('address').innerHTML = str;
                            }
+                           
+                           
+                           back = function() {
+                           
+                           var rev1 = document.getElementById('ipcode1').value;
+                           var rev2 = document.getElementById('ipcode2').value;
+                           document.getElementById('city_country').value = [(h2d(rev1)/100)-180,(h2d(rev2)/100)-90].join(', ');
+                           codeAddress();
+                           }
+                           
                            });
+                           
+                           
                     </script>
     
     </head>
@@ -414,7 +416,7 @@
             <input type="button" value="Go!" onclick="codeAddress()" id="button" >
             <br/>
             <br/>
-        </div>
+            </div>
             <br/>
             <div style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;padding-right: 10px;padding-left: 10px;">
             <br/>
@@ -428,18 +430,16 @@
             <div id="info"></div>
             <br/><b>Closest Matching Address:</b>
             <div id="address"></div>
-            <br/>____________<br/><br/>
-            <div id="coderev" align="center">
+            <br/>
+            </div><br/>
+            <div id="panel" align="center" style="background: #f9f6ed;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);border-radius: 5px;opacity:0.95;padding-right: 10px;padding-left: 10px;"><br/>
+                <b>Locate using UCP Code</b><br/><br/>
                 <input style="font-size: 11px; width: 45px; align:center;" id="ipcode1" type="textbox" value="FYR">
                 <input style="font-size: 11px; width: 45px; align:center;" id="ipcode2" type="textbox" value="CSJ">
                 <br/><br/><input type="button" value="Convert Back" onclick="back()" id="button">
                 <br/>
                 <br/>
             </div>
-            <b>Corresponding Position:</b>
-            <div id="copo">26.9124336, 75.78727090000007</div>
-            <br/>
-        </div>
     </div>
 </body>
 </html>
