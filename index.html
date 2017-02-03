@@ -74,7 +74,7 @@
                            geocoder.geocode( { 'address': address}, function(results, status) {
                                             if (status == google.maps.GeocoderStatus.OK) {
                                             map = new google.maps.Map(document.getElementById('maparea'), {
-                                                                      zoom: 16,
+                                                                      zoom: 10,
                                                                       streetViewControl: false,
                                                                       mapTypeControlOptions: {
                                                                       style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
@@ -183,6 +183,7 @@
     <div id="maparea" align="center">
     </div>
     <div id="infoPanel" align="center">
+        <div style="padding-left:5px;padding-right:5px;">
         <div id="panel" align="center"><br/>
             <input style="font-size: 15px; " id="city_country" type="textbox" value="Jaipur">
             <input type="button" value="Go!" onclick="codeAddress()" id="button" >
@@ -213,6 +214,7 @@
         <b>Corresponding Position:</b>
         <div id="copo">26.9124336, 75.78727090000007</div>
         <br/>
+    </div>
     </div>
 </body>
 </html>
